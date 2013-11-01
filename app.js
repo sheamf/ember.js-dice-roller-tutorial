@@ -102,7 +102,21 @@ Roller.RollController = Ember.Controller.extend({
 	}
 });
 
+Roller.DiceInputField = Ember.TextField.extend({
+	keyDown: function (event) {
+		var controller, action;
 
+		// check if we pressed the enter key
+		if (event.keyCode !== 13) {
+			return;
+		}
+
+		// call the controllers 'rollDice' function
+		controller = this.get("controller");
+		action = this.get("action");
+		controller.send(action, this.get("rollString"), this);
+	}
+});
 
 
 

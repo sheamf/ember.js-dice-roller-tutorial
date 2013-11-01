@@ -21,7 +21,8 @@
 				Enter your required dice roll below, for instance "3d6" will roll three six-sided dice."
 			</p>
 
-			{{input valueBinding="rollString" placeholder="Enter your dice roll, e.g. '3d6' here"}}
+			{{!input valueBinding="rollString" placeholder="Enter your dice roll, e.g. '3d6' here"}}
+			{{view Roller.DiceInputField valueBinding="rollString" action="rollDice" placeholder="Enter your dice roll, e.g. '3d6' here"}}	
 			<button {{action "rollDice"}}>Roll Dice </button>
 			
 			{{#if errors}}
